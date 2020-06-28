@@ -1,0 +1,305 @@
+body{
+    width:100%;
+    height:700px;
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  /* make it look decent enough */
+    /* background:rgb(32,128,124); */
+    background: linear-gradient(#e66465, #9198e5);
+    color:white;
+    font-family: "Avenir Next", "Avenir", sans-serif;    
+    display:flex;
+    flex-direction: column;
+
+}
+
+.content2{
+  flex-grow:1;
+}
+
+
+
+#menuToggle{
+    display: block;
+    width: 40px;
+    height: 32px;
+    cursor: pointer;  
+    margin-left:5px;
+    margin-top:5px;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+#menuToggle input{
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    
+    cursor: pointer;
+    
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */    
+    -webkit-touch-callout: none; 
+}
+
+#menuToggle span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+  
+    background: #cdcdcd;;
+    border-radius: 4px;
+  
+     z-index: 1;
+
+     transform-origin: 4px 0px;
+  
+     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+ #menuToggle input:checked ~ span
+ {
+   opacity: 1;
+   transform: rotate(45deg) translate(-2px, -1px);
+   background: #232323;
+ }
+
+
+
+/*
+ * But let's hide the middle one.
+ */
+ #menuToggle input:checked ~ span:nth-last-child(3)
+ {
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+ }
+ 
+ /*
+  * Ohyeah and the last one should go the other direction
+  */
+ #menuToggle input:checked ~ span:nth-last-child(2)
+ {
+   transform: rotate(-45deg) translate(0, -1px);
+ }
+
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%; /* 지정요소의 기준점 x 축 y축*/
+  transform: translate(-100%, 0); /* translate x, y */
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+ #menuToggle input:checked ~ ul
+ {
+   transform: none;
+ }
+
+
+
+.content1{
+    display:flex;
+    align-items: center;
+    
+}
+
+.content1 .content1__texts{
+    flex-grow: 1;
+}
+
+.content1 .content1__texts ul li:nth-child(1){
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.content1 .content1__texts ul li:nth-child(2){
+  font-weight: 100;
+  font-size: 15px;
+}
+
+
+ul{
+    list-style: none;
+}  
+
+.content1 .content2__items ul{
+    display:flex;
+}
+
+.content1 .content2__items ul .item{
+    padding: 5px;
+    border: 1px solid rgb(36, 85, 84);
+    border-radius: 4px;
+    color: whitesmoke;
+    background-color:rgb(36, 85, 84);
+    margin: 0 5px;
+}
+.content1 .content2__items ul .item:hover{
+  background-color: black;
+}
+
+.content1 .content2__items ul:nth-child(1) i{
+    padding: 0 4px;
+}
+
+/* 할일 리스트 영역*/
+/* .content2{
+  flex-grow: 1;
+} */
+
+.content2 .todo{
+  color: black;
+  display:flex;
+  align-items: center;
+  margin-right: 40px;
+  margin:1px auto;
+  background-color:whitesmoke;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: move;
+}
+
+.content2 .todo.dragging{
+  opacity: .5;
+}
+
+.content2 .todo:hover{
+  background-color: rgba(245, 245, 245, 0.76);
+}
+
+
+
+.content2 .todo .item{
+  padding: 0 10px;
+}
+
+.content2 .todo .item.far{
+  font-size: 25px;
+  color: gray;
+}
+
+
+.content2 .todo .item.todo__contentbox{
+  flex-grow:1;
+}
+
+
+footer{
+  display: flex;
+  border: 1px solid rgb(108, 93, 76);
+  border-radius: 4px;
+  background-color: rgb(108, 93, 76);
+  margin: 0 40px;
+  padding: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+*:focus { outline: none; }
+
+.todoButton{
+  border: none;
+  background-color: rgb(108, 93, 76);
+}
+
+.todoButton .fa-plus-square{
+  font-size: 25px;
+  color:white;
+  transition: all 0.2s;
+}
+
+.todoButton .fa-plus-square:hover{
+  cursor: pointer;
+  font-size: 25px;
+  color:rgb(58, 57, 57);
+}
+
+
+
+
+.todo__input{
+  margin: 0 5px;  
+}
+
+.todo__input{
+  border: none;
+  background-color: rgb(108, 93, 76);
+  color: white;
+  flex-grow:1;
+}
+
+.todo__input::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+
+
+
+
+
+
+
+
+

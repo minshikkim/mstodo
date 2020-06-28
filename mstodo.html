@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./responsive/assets/css/mstodo.css">
+    <script src="https://kit.fontawesome.com/ceb2d70a7c.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        input[type="checkbox"] {position:absolute; left:-3000%}
+        input[type="checkbox"] + label{position: relative;}
+        input[type="checkbox"] + label:before{ content:""; display:inline-block;
+        width: 20px; height: 20px; border: 1px solid #a6a6a6; position: relative; top:5px;
+        border-radius: 4px; transition: all 0.2s;}
+        input[type="checkbox"] + label:hover:before{background-color: #6ce6a2f3;}
+        input[type="checkbox"]:checked + label:before{background: #6ce6a2f3;border-color: #6ce6a2f3;}
+        input[type="checkbox"] + label:after{content:""; position: absolute; left:0; top:5px;
+        background:url(check-solid.svg) no-repeat center; width: 22px; height: 22px; background-size:0; transition: all 0.2s 0.1s;}
+        input[type="checkbox"]:checked + label:after{background-size: 10px auto;}
+
+
+        /* todo hover */
+        
+    </style>
+    <nav class="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+                    <!--
+            Too bad the menu has to be inside of the button
+            but hey, it's pure CSS magic.
+            -->
+            <ul id="menu">
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>About</li></a>
+                <a href="#"><li>Info</li></a>
+                <a href="#"><li>Contact</li></a>
+                <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+            </ul>
+        </div>
+    </nav>
+    <section class="content1">
+        <div class="content1__texts">
+            <ul>
+                <li class="text">오늘 할일</li>
+                <li class="text">6월 26일 금요일</li>
+            </ul>
+        </div>
+        <div class="content2__items">
+            <ul>
+                <li class="item"><i class="far fa-lightbulb"></i></li>
+                <li class="item"><i class="fas fa-ellipsis-h"></i></li>
+            </ul>
+        </div>
+    </section>
+    <section class="content2">
+        <ul class="todos">
+            <li class="todo" draggable="true">
+                <input type="checkbox" id="chk1"><label for="chk1"></label>
+                <div class="item todo__contentbox">
+                    <div class="todotext">take a shower</div>
+                    <div>할 일</div>
+                </div>
+                <i class="item far fa-star"></i>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        <button class="todoButton" type="button">
+            <i class="fas fa-plus-square"></i>
+        </button>
+        <input class="todo__input" type="text" placeholder="작업추가" >
+    </footer>
+    <script src="./responsive/assets/javascript/mstodo.js"></script>
+</body>
+</html>
